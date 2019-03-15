@@ -1,0 +1,55 @@
+These are the settings I used for repetier host to run the 3D printer. 
+
+Connection
+
+Baud Rate: 115200
+Stop bits: 1
+Parity: none
+Transfer Protocol: autodetect
+Receive Chache Size: 63
+Timeout: 40
+Ping Pong: False
+Firmware sends OK: True
+
+Behavior
+
+Travel Feedrate: 7000 mm/min
+Z axis Travel Feedrate: 1000 mm/min
+Default Extruder Temp: 200 ºC
+Default Heated Bed Temp: 0 ºC
+Number of Extruders: 1
+Rest of the settings are Default
+
+Dimensions: (very important settings. Printer can get damaged if incorrect)
+
+Home X: x = 0
+Home Y: y = 0
+Home Z: Z = Zmax (starts printing at Z = 0, homes to Z = Zmax)
+Xmin: -85 mm (build volume diameter = 170, radius = 85 mm)
+Xmax: 115 mm (actually 85, but my software does not allow below 115. Ignore)
+Ymin: -85 mm
+Ymax: 115 mm (same as above)
+Printer Type: delta with cylindrical print shape
+Diameter: 170 mm
+Height: 154*
+*This value changes every time you level the bed. Essentially, the print area needs to be a
+ perfect cylinder, which means that the plane of the home points needs to be perfectly 
+ paralell to the printing plane. This requires you to manually move the extruder around 
+ horizontally and put paper under the legs of the circular build platform to lift it and
+ make it horizontal with respect to the horizontal motion of the extruder. As a consequence, 
+ you also need to choose an appropriate Z height to make sure the printer prints JUST above
+ the build plate. This Z height must be changed in both repetier and in the firmware, the latter
+ requiring you to upload to the arduino everytime you change it (unless you figure out EEPROM).
+ 
+Advanced: 
+
+Nothing
+
+
+
+Preferences 
+
+
+Note: I personally found that printing using simplify3D gives the best prints and least hassle.
+      However, it is an expensive software unless you find another way of getting it ;)
+      Naturally, you can use the machine settings (dimensions, feedrate etc) on the other software. 
